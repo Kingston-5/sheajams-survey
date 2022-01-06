@@ -1,0 +1,163 @@
+@font-face {
+  src: url("../media/fonts/PermanentMarker-Regular.ttf");
+  font-family: Permanentmarker-regular;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Permanentmarker-regular, "Permanentmarker-regular";
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f2f2f2;
+}
+
+.wrapper {
+  padding: 1rem;
+  background: #fff;
+  width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+
+nav,
+.intro,
+.start,
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+nav {
+  border-bottom: 1px solid black;
+}
+
+.intro h3 {
+  margin: 1rem;
+  padding-bottom: 3rem;
+}
+
+.intro h4 {
+  margin: 1rem;
+  padding-bottom: 3rem;
+}
+
+.footer{
+  border-top: 1px solid black;
+}
+
+.btn {
+  padding: 1rem;
+  height: auto;
+  border: none;
+  font-size: 17px;
+  font-weight: 400;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.question-control{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.counter span, .question-area, .answer-area{
+  margin: 1.5 rem;
+  padding: 1rem;
+  height: auto;
+  border: 1px solid black;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question-area, .answer-area{
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.form {
+  margin: 1.5 rem;
+  padding: 1rem;
+  height: auto;
+  border: 1px solid black;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+
+.form input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.form form .field i{
+	color: blue;
+	cursor: pointer;
+}
+
+.form form .image input{
+	font-size: 17px;
+}
+
+.form form .button input{
+	margin-top: 13px;
+	height: 45px;
+	border: none;
+	font-size: 17px;
+	font-weight: 400;
+	background: #333;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.form .link{
+	text-align: center;
+	margin: 10px 0;
+	font-size: 17px;
+}
+
+.form .link a{
+	color: #333;
+}
+
+.form .link a:hover{
+	text-decoration: underline;
+}
