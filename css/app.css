@@ -10,6 +10,10 @@
   font-family: Permanentmarker-regular, "Permanentmarker-regular";
 }
 
+li{
+  list-style-type: none;
+}
+
 body {
   display: flex;
   align-items: center;

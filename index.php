@@ -21,6 +21,36 @@
     <?php
 
     include "includes/header.inc.php";
+    require_once 'core/init.php';
+    $time = time() + (1 * 24 * 60 * 60);
+    $db = DB::getInstance();
+    $db->get('questions', array('id', '>', '0'));
+
+    if (!Cookie::exists('total_question')) {
+        Cookie::put('total_question', $db->count(), $time);
+    }
+
+    if (!Cookie::exists('question')) {
+        Cookie::put('question', 0, $time);
+    }
+
+    $ip = $_SERVER["REMOTE_ADDR"];
+    var_dump(($ip));
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
+            if ($db->insert('users', array(
+                'ip' => $ip
+            ))) {
+                if (!Cookie::exists('user_id')) {
+                    $db->get('users', array('ip', '=', $ip));
+                    $user = $db->results();
+                    Cookie::put('user_id', $user[0]->id, $time);
+                }
+            }
+            header("location: question.php");
+        }
+    }
+
     ?>
 
     <div class="intro">
@@ -35,8 +65,15 @@
     </div>
 
     <div class="start">
-
-        <a class="btn" href="question.php">Take Survey</a>
+        <form action="#" method="post">
+            <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+            <?php
+            if (Cookie::get('total_question') == Cookie::get('question')) {
+                echo '<button class="btn">Thank you for taking our survey</button>';
+            } else {
+                echo '<input class="btn" type="submit" value="Take Survey">';
+            } ?>
+        </form>
     </div>
     <?php
 

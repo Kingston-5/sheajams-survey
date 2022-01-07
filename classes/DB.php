@@ -96,10 +96,11 @@ class DB {
      * @return true of succesful
      */
     public function insert($table, $fields = array()) {
+        
         $keys = array_keys($fields);
         $values = null;
         $x = 1;
-
+        
         foreach($fields as $field) {
             $values .= '?';
             if ($x < count($fields)) {
@@ -109,7 +110,6 @@ class DB {
         }
 
         $sql = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
-
         if(!$this->query($sql, $fields)->error()) {
             return true;
         }
@@ -148,7 +148,7 @@ class DB {
     /**
      * delete data in the db
      * @param table - table to perform deletion
-     * @param where - conditions decsribing which data to delete
+     * @param where - conditions describing which data to delete
      * @return - true or false
      */
     public function delete($table, $where) {

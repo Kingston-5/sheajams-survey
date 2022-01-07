@@ -26,7 +26,7 @@ class Session {
      * @return - the value of session variable/name
      * @param name - session name
      */
-    public static function get($name) {//gets 
+    public static function get($name) {
         return $_SESSION[$name];
     }
 
@@ -39,13 +39,13 @@ class Session {
         }
     }
 
-    // public static function flash ($name, $string = 'null') {
-    //     if(self::exists($name)) {//if the session exists
-    //         $session = self::get($name);
-    //         self::delete($name);//destroy session varaible/name value
-    //         return $session;//return empty session
-    //     } else {
-    //         self::put($name, $string);// create the seesion variable
-    //     }
-    // }
+    public static function flash ($name, $string = 'null') {
+        if(self::exists($name)) {//if the session exists
+            $session = self::get($name);
+            self::delete($name);//destroy session varaible/name value
+            return $session;//return empty session
+        } else {
+            self::put($name, $string);// create the seesion variable
+        }
+    }
 }

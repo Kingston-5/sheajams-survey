@@ -17,6 +17,7 @@
  </head>
  <nav>
      <h1><u>Sheajams.com</u></h1>
-     
+
      <h2><u>User Survey</u></h2>
+     <a href="./">Home</a>
  </nav>

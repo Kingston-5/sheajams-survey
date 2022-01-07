@@ -11,7 +11,7 @@
  <div class="footer">
      <p>© Sheajams 2022</p>
      <div>
-     <a href="#">terms of use</a>|
+     <a href="termsandconditions.php">terms of use</a>|
      <a href="#">Privacy Policy</a>
      </div>
      

@@ -9,8 +9,40 @@
 ?>
 <div class="wrapper">
     <?php
-
+    require_once 'core/init.php';
     include "includes/header.inc.php";
+    
+    $db = DB::getInstance();
+
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
+    
+            $validate = new Validate();
+            $validate->check($_POST, array(
+                'name' => array(
+                    'name' => 'name',
+                    'required' => true,
+                    'min' => 2,
+                    'max' => 50
+                ),
+                'email' => array(
+                    'name' => 'email',
+                    'required' => true,
+                    'max' => 50
+                ),
+            ));
+    
+            if ($validate->passed()) {
+                if($db->update('users', Cookie::get('user_id'), array(
+                    'name' => Input::get('name'),
+                    'email' => Input::get('email')
+                ))){
+                    header("location: index.php");
+                }
+            }
+        }
+    }
+
     ?>
     <div class="intro">
     <h3>
@@ -24,11 +56,12 @@
         <label for="Name">
             Name
         </label>
-        <input type="text" class="text" placeholder="Your name">
+        <input type="text" class="text" name='name' placeholder="Your name">
         <label for="email">
             Email
         </label>
-        <input type="email" class="text" placeholder="Your Email">
+        <input type="email" class="text" name='email' placeholder="Your Email">
+        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
         <input type="submit" class="submit btn">
     </form>
     <?php
