@@ -31,7 +31,7 @@ if (!Cookie::exists('total_question')) {
 
 if ($questions[Cookie::get('question')]->type == 'A') {
 
-    if ($questions[Cookie::get('question')]->type != Cookie::get('user_type')) {
+    if ($questions[Cookie::get('question')]->type == 'A' && Cookie::get('user_type') == 'B') {
         Cookie::put('question', (Cookie::get('question') + 1), $time);
         header("location: question.php");
     }
@@ -44,13 +44,17 @@ if (!empty(Input::get('next'))) {
         $validate->check($_POST, array(
             'option' => array(
                 'name' => 'option',
-                'required' => true
+            ),
+            'text' => array(
+                'name' => 'text',
+                'min' => 2,
+                'max' => 50
             ),
         ));
 
         if (Cookie::get('question') == '0') {
-            echo 'answering question 1';
-            if (Input::get('option') == 'yes') {
+            $type = '';
+            if (Input::get('option') == 'Yes') {
                 $type = 'A';
             } else {
                 $type = 'B';
@@ -62,11 +66,18 @@ if (!empty(Input::get('next'))) {
             }
         }
 
+        $input = array(
+            "option" => empty(Input::get('option')) ? null : Input::get('option'),
+            "extra" => empty(Input::get('text')) ? null : Input::get('text')
+        );
+
+        $input = json_encode($input);
+        
         if ($validate->passed()) {
             if ($db->insert('responses', array(
                 'user_id' => Cookie::get('user_id'),
                 'question_id' => Input::get('question_id'),
-                'response' => Input::get('option'),
+                'response' => $input,
                 'date' => date('Y-m-d H:i')
             ))) {
                 Cookie::put('question', (Cookie::get('question') + 1), $time);
@@ -106,7 +117,7 @@ if (!empty(Input::get('next'))) {
         <form action="" method="post">
             <div class="question-area">
                 <?php
-                echo "queston: " . $questions[Cookie::get('question')]->question;
+                echo "queston: " . $questions[Cookie::get('question')]->question . " ?";
                 ?>
             </div>
             <div class="answer-area">
@@ -114,12 +125,18 @@ if (!empty(Input::get('next'))) {
                 $options = json_decode($questions[Cookie::get('question')]->options);
                 if (is_array($options)) {
                     foreach ($options as $option) {
-                        echo '<input type="radio" name="option" value="' . $option . '" checked>' . $option . '<br>';
+                        if ($option == "input") {
+                            echo "<input type='text' name='text' id=''>";
+                        } else {
+                            echo '<input type="radio" name="option" value="' . $option . '" checked>' . $option . '<br>';
+                        }    
+                                
                     }
                 }
                 ?>
             </div>
             <div class="question-control">
+                
                 <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                 <input type="hidden" name="question_id" value="<?php echo $questions[Cookie::get('question')]->id ?>">
                 <input type="submit" class="btn previous" name="previous" value="previous">

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * index.php
  * intro page where the user is shown the survey intro including a brief description of sheajams
@@ -35,18 +34,18 @@
     }
 
     $ip = $_SERVER["REMOTE_ADDR"];
-    var_dump(($ip));
     if (Input::exists()) {
         if (Token::check(Input::get('token'))) {
-            if ($db->insert('users', array(
+            
+            $db->insert('users', array(
                 'ip' => $ip
-            ))) {
-                if (!Cookie::exists('user_id')) {
+            )); 
+                if(!Cookie::exists('user_id')) {
                     $db->get('users', array('ip', '=', $ip));
                     $user = $db->results();
                     Cookie::put('user_id', $user[0]->id, $time);
                 }
-            }
+            
             header("location: question.php");
         }
     }
