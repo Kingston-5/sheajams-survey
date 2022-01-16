@@ -1,3 +1,7 @@
+<?php
+
+echo "Sorry we are expirencing errors..... please try again later";
+?>
 <!-- <?php
 /**
  * index.php
