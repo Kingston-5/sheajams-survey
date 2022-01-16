@@ -52,8 +52,8 @@
 
     ?>
     <div class="intro">
-        <h1>welcome to sdiwawa.com</h1>
-    <h2>Ola mfe2</h2>
+        <h3>welcome to sdiwawa.com</h1>
+    <h4>Ola mfe2</h2>
     </div>
 <!--     <div class="intro">
         <h3>
