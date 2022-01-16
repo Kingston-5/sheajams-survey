@@ -19,7 +19,7 @@
 <div class="wrapper">
     <?php
 
-//     include "includes/header.inc.php";
+    include "includes/header.inc.php";
 //     require_once 'core/init.php';
 //     $time = time() + (1 * 24 * 60 * 60);
 //     $db = DB::getInstance();
