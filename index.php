@@ -66,11 +66,12 @@
         <form action="#" method="post">
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
             <?php
-            if (Cookie::get('total_question') == 12) {
-                echo '<button class="btn">Thank you for taking our survey</button>';
-            } else {
-                echo '<input class="btn" type="submit" value="Take Survey">';
-            } ?>
+//             if (Cookie::get('total_question') == 12) {
+//                 echo '<button class="btn">Thank you for taking our survey</button>';
+//             } else {
+//                 echo '<input class="btn" type="submit" value="Take Survey">';
+//             } ?>
+            <input class="btn" type="submit" value="Take Survey">
         </form>
     </div> 
     
