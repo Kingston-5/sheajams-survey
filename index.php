@@ -51,7 +51,10 @@
 //     }
 
     ?>
-
+    <div class="intro">
+        <h1>welcome to sdiwawa.com</h1>
+    <h2>Ola mfe2</h2>
+    </div>
 <!--     <div class="intro">
         <h3>
             Sheajams is a online art sharing platform that is aimed at helping artists grow in their industries
@@ -74,8 +77,7 @@
             } ?>
         </form>
     </div> -->
-    <h1>welcome to sdiwawa.com</h1>
-    <h2>Ola mfe2</h2>
+    
     <?php
 
     include "includes/footer.inc.php";
