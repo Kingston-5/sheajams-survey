@@ -37,7 +37,7 @@
                     'name' => Input::get('name'),
                     'email' => Input::get('email')
                 ))){
-                    header("location: index.php");
+                    header("location: thankyou.php");
                 }
             }
         }
