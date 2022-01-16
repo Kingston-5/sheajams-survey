@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 /**
  * index.php
  * intro page where the user is shown the survey intro including a brief description of sheajams
@@ -86,3 +86,4 @@
     include "includes/footer.inc.php";
     ?>
 </div>
+ -->
