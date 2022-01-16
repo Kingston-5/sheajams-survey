@@ -8,10 +8,20 @@ session_start();
 // global variables to be used such as session names mysql connections
 $GLOBALS['config'] = array(
     'mysql' => array(
-        'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'db' => 'survey'
+//         ====================================================
+//         test/home server
+//         ====================================================
+//         'host' => 'localhost',
+//         'username' => 'root',
+//         'password' => '',
+//         'db' => 'survey'
+//         ====================================================
+//         production server
+//         ====================================================
+        'host' => 'localhost:3306',
+        'username' => 'main_user',
+        'password' => 'v~517TjmxCxqsVig',
+        'db' => 'sheajams_main_db'
     ),
     'remember' => array(
         'cookie_name' => 'hash',
