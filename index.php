@@ -40,6 +40,11 @@
             $db->insert('users', array(
                 'ip' => $ip
             )); 
+            
+            if($db->error()){
+                echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
+            } else {
+                
                 if(!Cookie::exists('user_id')) {
                     $db->get('users', array('ip', '=', $ip));
                     $user = $db->results();
@@ -47,12 +52,9 @@
                 }
             
             header("location: question.php");
-        } else {
-            echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
+            }
         }
-    }else {
-            echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
-        }
+    }
 
     ?>
     <div class="intro">
