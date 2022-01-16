@@ -47,8 +47,12 @@
                 }
             
             header("location: question.php");
+        } else {
+            echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
         }
-    }
+    }else {
+            echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
+        }
 
     ?>
     <div class="intro">
