@@ -19,40 +19,40 @@
 <div class="wrapper">
     <?php
 
-    include "includes/header.inc.php";
-    require_once 'core/init.php';
-    $time = time() + (1 * 24 * 60 * 60);
-    $db = DB::getInstance();
-    $db->get('questions', array('id', '>', '0'));
+//     include "includes/header.inc.php";
+//     require_once 'core/init.php';
+//     $time = time() + (1 * 24 * 60 * 60);
+//     $db = DB::getInstance();
+//     $db->get('questions', array('id', '>', '0'));
 
-    if (!Cookie::exists('total_question')) {
-        Cookie::put('total_question', $db->count(), $time);
-    }
+//     if (!Cookie::exists('total_question')) {
+//         Cookie::put('total_question', $db->count(), $time);
+//     }
 
-    if (!Cookie::exists('question')) {
-        Cookie::put('question', 0, $time);
-    }
+//     if (!Cookie::exists('question')) {
+//         Cookie::put('question', 0, $time);
+//     }
 
-    $ip = $_SERVER["REMOTE_ADDR"];
-    if (Input::exists()) {
-        if (Token::check(Input::get('token'))) {
+//     $ip = $_SERVER["REMOTE_ADDR"];
+//     if (Input::exists()) {
+//         if (Token::check(Input::get('token'))) {
             
-            $db->insert('users', array(
-                'ip' => $ip
-            )); 
-                if(!Cookie::exists('user_id')) {
-                    $db->get('users', array('ip', '=', $ip));
-                    $user = $db->results();
-                    Cookie::put('user_id', $user[0]->id, $time);
-                }
+//             $db->insert('users', array(
+//                 'ip' => $ip
+//             )); 
+//                 if(!Cookie::exists('user_id')) {
+//                     $db->get('users', array('ip', '=', $ip));
+//                     $user = $db->results();
+//                     Cookie::put('user_id', $user[0]->id, $time);
+//                 }
             
-            header("location: question.php");
-        }
-    }
+//             header("location: question.php");
+//         }
+//     }
 
     ?>
 
-    <div class="intro">
+<!--     <div class="intro">
         <h3>
             Sheajams is a online art sharing platform that is aimed at helping artists grow in their industries
             by providing a platform where they can share their work weith the world
@@ -73,7 +73,9 @@
                 echo '<input class="btn" type="submit" value="Take Survey">';
             } ?>
         </form>
-    </div>
+    </div> -->
+    <h1>welcome to sdiwawa.com</h1>
+    <h2>Ola mfe2</h2>
     <?php
 
     include "includes/footer.inc.php";
