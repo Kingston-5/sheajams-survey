@@ -35,7 +35,7 @@
 
     $ip = $_SERVER["REMOTE_ADDR"];
     
-    $exists = $db->get('users', array('ip', '=', $ip);
+    $exists = $db->get('users', array('ip', '=', $ip));
     if ($exists){
         echo 'you have alredy taken the survey';
     }else{
