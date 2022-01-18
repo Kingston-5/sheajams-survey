@@ -37,10 +37,7 @@
                     'name' => Input::get('name'),
                     'email' => Input::get('email')
                 ));
-                
-                if($update){
                     header("location: thankyou.php");
-                }
             }
         }
     }
