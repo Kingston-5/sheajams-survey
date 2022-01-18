@@ -37,31 +37,31 @@
     
     $exists = $db->get('users', array('ip', '=', $ip));
     if ($exists){
-        echo 'you have alredy taken the survey';
+        eader("location: exit.php");
     }else{
-        echo 'please take the survey';
-    }
-//     if (Input::exists()) {
-//         if (Token::check(Input::get('token'))) {
+    
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
             
-//             $db->insert('users', array(
-//                 'ip' => $ip
-//             )); 
+            $db->insert('users', array(
+                'ip' => $ip
+            )); 
             
-//             if($db->error()){
-//                 echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
-//             } else {
+            if($db->error()){
+                echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
+            } else {
                 
-//                 if(!Cookie::exists('user_id')) {
-//                     $db->get('users', array('ip', '=', $ip));
-//                     $user = $db->results();
-//                     Cookie::put('user_id', $user[0]->id, $time);
-//                 }
+                if(!Cookie::exists('user_id')) {
+                    $db->get('users', array('ip', '=', $ip));
+                    $user = $db->results();
+                    Cookie::put('user_id', $user[0]->id, $time);
+                }
             
-//             header("location: question.php");
-//             }
-//         }
-//     }
+            header("location: question.php");
+            }
+        }
+    }
+    }
 
     ?>
     <div class="intro">
@@ -79,11 +79,11 @@
         <form action="#" method="post">
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
             <?php
-//             if (Cookie::get('total_question') == 12) {
-//                 echo '<button class="btn">Thank you for taking our survey</button>';
-//             } else {
-//                 echo '<input class="btn" type="submit" value="Take Survey">';
-//             } ?>
+            if (Cookie::get('total_question') == 12) {
+                echo '<button class="btn">Thank you for taking our survey</button>';
+            } else {
+                echo '<input class="btn" type="submit" value="Take Survey">';
+            } ?>
             <input class="btn" type="submit" value="Take Survey">
         </form>
     </div> 
