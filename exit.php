@@ -38,6 +38,8 @@
                     'email' => Input::get('email')
                 ));
                     header("location: thankyou.php");
+            } else {
+                echo 'Validation Failed';
             }
         }
     }
