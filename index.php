@@ -35,8 +35,9 @@
 
     $ip = $_SERVER["REMOTE_ADDR"];
     
-    $exists = $db->get('users', array('ip', '=', $ip));
-    if ($exists){
+    $db->get('users', array('ip', '=', $ip));
+    $exists = $db->results();
+    if (!empty($exists)){
         header("location: exit.php");
     }else{
     
