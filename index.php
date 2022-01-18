@@ -1,8 +1,4 @@
 <?php
-
-echo "Sorry we are expirencing errors..... please try again later";
-?>
-<!-- <?php
 /**
  * index.php
  * intro page where the user is shown the survey intro including a brief description of sheajams
@@ -90,4 +86,3 @@ echo "Sorry we are expirencing errors..... please try again later";
     include "includes/footer.inc.php";
     ?>
 </div>
- -->
