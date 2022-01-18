@@ -34,6 +34,13 @@
     }
 
     $ip = $_SERVER["REMOTE_ADDR"];
+    
+    $exists = $db->get('users', array('ip', '=', $ip);
+    if (!empty($exists)){
+        echo 'you have alredy taken the survey';
+    }else{
+        echo 'please take the survey';
+    }
     if (Input::exists()) {
         if (Token::check(Input::get('token'))) {
             
