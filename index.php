@@ -41,27 +41,27 @@
     }else{
         echo 'please take the survey';
     }
-    if (Input::exists()) {
-        if (Token::check(Input::get('token'))) {
+//     if (Input::exists()) {
+//         if (Token::check(Input::get('token'))) {
             
-            $db->insert('users', array(
-                'ip' => $ip
-            )); 
+//             $db->insert('users', array(
+//                 'ip' => $ip
+//             )); 
             
-            if($db->error()){
-                echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
-            } else {
+//             if($db->error()){
+//                 echo "OOP's looks like an error occured,Please try refreshing the page or trying again later.";
+//             } else {
                 
-                if(!Cookie::exists('user_id')) {
-                    $db->get('users', array('ip', '=', $ip));
-                    $user = $db->results();
-                    Cookie::put('user_id', $user[0]->id, $time);
-                }
+//                 if(!Cookie::exists('user_id')) {
+//                     $db->get('users', array('ip', '=', $ip));
+//                     $user = $db->results();
+//                     Cookie::put('user_id', $user[0]->id, $time);
+//                 }
             
-            header("location: question.php");
-            }
-        }
-    }
+//             header("location: question.php");
+//             }
+//         }
+//     }
 
     ?>
     <div class="intro">
