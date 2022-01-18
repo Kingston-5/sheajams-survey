@@ -37,11 +37,10 @@
                     'name' => Input::get('name'),
                     'email' => Input::get('email')
                 ));
-                var_dump($update);
-                exit();
-//                 if(){
-//                     header("location: thankyou.php");
-//                 }
+                
+                if($update){
+                    header("location: thankyou.php");
+                }
             }
         }
     }
