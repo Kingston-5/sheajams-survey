@@ -33,10 +33,13 @@
             ));
     
             if ($validate->passed()) {
-                if($db->update('users', Cookie::get('user_id'), array(
+               $update = $db->update('users', Cookie::get('user_id'), array(
                     'name' => Input::get('name'),
                     'email' => Input::get('email')
-                ))){
+                ));
+                var_dump($update);
+                exit();
+                if(){
                     header("location: thankyou.php");
                 }
             }
