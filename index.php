@@ -38,7 +38,7 @@
     $db->get('users', array('ip', '=', $ip));
     $exists = $db->results();
     if (!empty($exists)){
-        header("location: exit.php");
+        header("location: thankyou.php");
     }else{
     
     if (Input::exists()) {
