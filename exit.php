@@ -39,9 +39,9 @@
                 ));
                 var_dump($update);
                 exit();
-                if(){
-                    header("location: thankyou.php");
-                }
+//                 if(){
+//                     header("location: thankyou.php");
+//                 }
             }
         }
     }
