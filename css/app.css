@@ -165,3 +165,10 @@ nav {
 .form .link a:hover{
 	text-decoration: underline;
 }
+
+#answer-text {
+  border: 2.5px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}

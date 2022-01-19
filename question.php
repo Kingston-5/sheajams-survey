@@ -126,7 +126,7 @@ if (!empty(Input::get('next'))) {
                 if (is_array($options)) {
                     foreach ($options as $option) {
                         if ($option == "input") {
-                            echo "<input type='text' name='text' id=''>";
+                            echo "<p>use spaces to separate different artist(s)</p><br/><input type='text' name='text' id='answer-text' placeholder='favourite artist(s)'>";
                         } else {
                             echo '<input type="radio" name="option" value="' . $option . '" checked>' . $option . '<br>';
                         }    

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * this is where we initiate our global variables and our autuoload register
  */
@@ -8,16 +9,16 @@ session_start();
 // global variables to be used such as session names mysql connections
 $GLOBALS['config'] = array(
     'mysql' => array(
-//         ====================================================
-//         test/home server
-//         ====================================================
-//         'host' => 'localhost',
-//         'username' => 'root',
-//         'password' => '',
-//         'db' => 'survey'
-//         ====================================================
-//         production server
-//         ====================================================
+        //====================================================
+        //test/home server
+        //====================================================
+        // 'host' => 'localhost',
+        // 'username' => 'root',
+        // 'password' => '',
+        // 'db' => 'survey'
+        //====================================================
+        //production server
+        //====================================================
         'host' => 'localhost:3306',
         'username' => 'main_user',
         'password' => 'v~517TjmxCxqsVig',
@@ -35,6 +36,6 @@ $GLOBALS['config'] = array(
 );
 
 // register our autoload functions
-spl_autoload_register(function($class) {
+spl_autoload_register(function ($class) {
     require_once 'classes/' . $class . '.php';
 });
